@@ -1,6 +1,6 @@
 {
-  "name": "@astrian/mainetcn",
-  "version": "1.0.8",
+  "name": "mainetcn",
+  "version": "1.0.9",
   "description": "maimai dx 国服成绩查询",
   "main": "index.js",
   "scripts": {

@@ -21,12 +21,12 @@ console.log(profile())
 ## 访问 Token？什么鬼？
 由于国服 maimaiNET 统一使用微信登录，且华立及 SEGA 没有提供关联手机号或邮箱的选项、微信没有开放开发者调试工具的使用，因此若需要使用该框架访问 maimaiNET，需要使用 MitM（中间人）工具，获取利用 HTTPS 与华立服务器传输的、存放于浏览器 Cookie 中的 token。
 
-完成 MitM 抓包需要特定的抓包软件。iOS 及 macOS 可以使用 [Surge](https://blog.wttft.com/201809101/)、Android 用户可以使用 [HttpCanary](https://play.google.com/store/apps/details?id=com.guoshi.httpcanary&hl=zh)。
+完成 MitM 抓包需要特定的抓包软件。iOS 及 macOS 用户可以使用 [Surge](https://blog.wttft.com/201809101/)、Android 用户可以使用 [HttpCanary](https://play.google.com/store/apps/details?id=com.guoshi.httpcanary&hl=zh)。
 
 具体方法是：
 
 - 使用对应抓包/网络记录工具，安装 MitM 证书。（请确保你信任这个抓包软件。）然后打开抓包。
-- 打开微信，打开「舞萌 DX」公众号，点击底部「我的记录」菜单。等待网页成功加载完毕后，
+- 打开微信，打开「舞萌 DX」公众号，点击底部「我的记录」菜单。等待网页成功加载完毕。
 - 在抓取到的网络包记录中，找到发往 `https://maimai.wahlap.com/maimai-mobile/home/` 的 GET 请求通讯包。
 - 在这个包中找到响应头，头内 `Set-Cookie` 参数中有对应的 token。
 
