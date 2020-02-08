@@ -34,17 +34,22 @@ module.exports = async token => {
       result.tracknum = (xpath.select(`string(//span[@class='red f_b v_b'])`, logs[i])).split(' 0')[1]
       result.date = (xpath.select(`string(//span[@class='v_b'])`, logs[i]))
       let grade = (xpath.select1(`//img[@class='playlog_scorerank']/@src`, logs[i]).value).split('/')
-      result.grade = (grade[grade.length - 1]).split('.')[0]
+      let difficulty = xpath.select1(`//img[@class='playlog_diff v_b']/@src`, doc).value
+      difficulty = (difficulty.split('diff_')[1]).split('.')[0]
+      result.id = xpath.select1(`//form/input/@value`, logs[i]).value
       result.track = {
         title: (xpath.select(`string(//div[@class='basic_block m_5 p_5 p_l_10 f_13 break'])`, logs[i])),
         dx: (xpath.select1(`//img[@class='playlog_music_kind_icon']/@src`, logs[i]).value) === 'https://maimai.wahlap.com/maimai-mobile/img/music_dx.png',
-        coverart: xpath.select1(`//img[@class='music_img m_5 m_r_0 f_l']/@src`, logs[i]).value
+        coverart: xpath.select1(`//img[@class='music_img m_5 m_r_0 f_l']/@src`, logs[i]).value,
+        difficulty
       }
-      result.achivement = parseFloat((xpath.select(`string(//div[@class='playlog_achievement_txt t_r'])`, logs[i])).split('%')[0])
-      result.dxscore = parseInt(xpath.select(`string(//div[@class='white p_r_5 f_15 f_r'])`, logs[i]))
-      result.fullcombo = xpath.select1(`//div[@class='playlog_result_innerblock basic_block p_5 f_13']/img[@class='h_35 m_5 f_l']/@src`, logs[i]).value === 'https://maimai.wahlap.com/maimai-mobile/img/playlog/fc.png'
-      result.fullsync = !(xpath.select(`//img[@src='https://maimai.wahlap.com/maimai-mobile/img/playlog/fs_dummy.png']`, logs[i]))[0],
-      result.identifier = xpath.select1(`//form/input/@value`, logs[i]).value
+      result.grade = {
+        achivement: parseFloat((xpath.select(`string(//div[@class='playlog_achievement_txt t_r'])`, logs[i])).split('%')[0]),
+        dxscore: parseInt(xpath.select(`string(//div[@class='white p_r_5 f_15 f_r'])`, logs[i])),
+        fullcombo: xpath.select1(`//div[@class='playlog_result_innerblock basic_block p_5 f_13']/img[@class='h_35 m_5 f_l']/@src`, logs[i]).value === 'https://maimai.wahlap.com/maimai-mobile/img/playlog/fc.png',
+        fullsync: !(xpath.select(`//img[@src='https://maimai.wahlap.com/maimai-mobile/img/playlog/fs_dummy.png']`, logs[i]))[0],
+        rank: (grade[grade.length - 1]).split('.')[0]
+      }
       logs[i] = result
     }
   } catch (e) {
