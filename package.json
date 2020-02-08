@@ -1,0 +1,24 @@
+{
+  "name": "@astrian/mainetcn",
+  "version": "1.0.0",
+  "description": "maimai dx 国服成绩查询",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Astrian/mainetcn.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Astrian/mainetcn/issues"
+  },
+  "homepage": "https://github.com/Astrian/mainetcn#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "xmldom": "^0.2.1",
+    "xpath": "0.0.27"
+  }
+}
