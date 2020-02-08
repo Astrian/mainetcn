@@ -1,10 +1,10 @@
 {
   "name": "@astrian/mainetcn",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "maimai dx 国服成绩查询",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "debug": "node debug.js"
   },
   "repository": {
     "type": "git",

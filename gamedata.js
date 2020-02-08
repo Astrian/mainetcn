@@ -14,9 +14,6 @@ module.exports = async token => {
     }
   })
 
-  // Error Check?
-  console.log(networkrequest.headers)
-
   // Get token
   let cookieori = networkrequest.headers['set-cookie']
   let cookie = {}

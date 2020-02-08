@@ -1,3 +1,4 @@
 module.exports = {
-  gamedata: require('./gamedata')
+  gamedata: require('./gamedata'),
+  recent: require('./recent')
 }
