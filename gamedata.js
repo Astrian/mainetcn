@@ -25,11 +25,11 @@ module.exports = async token => {
   }
   
   // Parse webpage content
-  for (let i in networkrequest) console.log(i)
   let doc = new dom().parseFromString(networkrequest.data)
 
-  // Username
-  let username = (xpath.select(`//div[@class='name_block f_l f_14']`, doc))[0].firstChild.data
+  // Username & check error
+  let username
+  try { username = await (xpath.select(`//div[@class='name_block f_l f_14']`, doc))[0].firstChild.data } catch (e) { throw new Error('Expired or incorrect token pair') }
 
   // DX Rating
   let dxrating = (xpath.select(`//div[@class='rating_block f_11']`, doc))[0].firstChild.data
