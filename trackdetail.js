@@ -34,6 +34,7 @@ module.exports = async (token, trackid) => {
   let basiclogs = new dom().parseFromString(basiclogs_row[0].toString())
   let grade = (xpath.select1(`//img[@class='playlog_scorerank']/@src`, basiclogs).value).split('/')
   let difficulty = xpath.select1(`//img[@class='playlog_diff v_b']/@src`, doc).value
+  result.date = (xpath.select(`string(//span[@class='v_b'])`, basiclogs))
   difficulty = (difficulty.split('diff_')[1]).split('.')[0]
   result.track = {
     title: (xpath.select(`string(//div[@class='basic_block m_5 p_5 p_l_10 f_13 break'])`, basiclogs)),
