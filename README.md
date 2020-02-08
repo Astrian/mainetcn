@@ -56,3 +56,8 @@ Expires: -1
 - `mainetcn.gamedata(token)`：获取玩家资料。
 - `mainetcn.recent(token)`：获取最近游玩的 50 次谱面记录列表。
 - `mainetcn.trackdetail(token, trackid)`：获取单次谱面详情。`trackid` 参数可以在 `mainetcn.recent(token)` 中的 `res.result[i].id`中获取。
+
+## License & Disclaimer
+MIT
+
+本代码与华立、SEGA 等公司无任何关系，注册商标所有权归相关品牌所有。请勿使用本代码用于网络攻击或其他滥用行为。
