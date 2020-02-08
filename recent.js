@@ -18,7 +18,10 @@ module.exports = async token => {
   for (let i in cookieori) {
     cookie[cookieori[i].split('; ')[0].split('=')[0]] = cookieori[i].split('; ')[0].split('=')[1]
   }
-  if (!cookie.userId) throw new Error('Expired or incorrect token pair')
+  if (!cookie.userId) {
+    let doc = new dom().parseFromString(networkrequest.data)
+    throw new Error(`The server return an error: ${xpath.select(`string(//div[@class='p_5 f_12 gray break'])`, doc)}`)
+  }
   
   // Parse webpage content
   let doc = new dom().parseFromString(networkrequest.data)
