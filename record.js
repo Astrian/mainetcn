@@ -93,6 +93,7 @@ async function record(token, level) {
     const docId = score.parentNode.parentNode.parentNode.getAttribute('id')
     if (docId) {
       record_data.type = docId.match(/(.*)_/)[1]
+      if (record_data.type == 'sta') record_data.type = 'standard';
     } else {
       record_data.type = score.parentNode.parentNode.nextSibling.nextSibling.getAttribute("src").match('_(.*).png')[1]
     }
