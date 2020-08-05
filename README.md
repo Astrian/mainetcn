@@ -56,6 +56,7 @@ Expires: -1
 - `mainetcn.gamedata(token)`：获取玩家资料。
 - `mainetcn.recent(token)`：获取最近游玩的 50 次谱面记录列表。
 - `mainetcn.trackdetail(token, trackid)`：获取单次谱面详情。`trackid` 参数可以在 `mainetcn.recent(token)` 中的 `res.result[i].id`中获取。
+- `mainetcn.record(token, level)`：获取指定等级的谱面游玩记录。参数`level`的取值范围为`basic`, `advanced`, `expert`, `master`, `re:master` 或 `all`，也可以用数字`0`~`4`和`99`来代替。
 
 ## License & Disclaimer
 MIT
